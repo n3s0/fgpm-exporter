@@ -1,0 +1,8 @@
+---
+hosts:
+  - name: test-fw-01
+    url: https://192.168.1.1
+    apikey: <API KEY HERE>
+  - name: lab-fw-01
+    url: https://lab-fw-01.mgmt.lab.n3s0
+    apikey: <API KEY HERE>
