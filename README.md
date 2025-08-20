@@ -48,7 +48,35 @@ git clone git@gitlab.com:n3s0/fgpm-exporter.git
 
 ## Build
 
-I do not have any build instructions at this time.
+I have two methods available for installing fgpm-exporter. The first is to
+install it in your GOPATH BIN; which is useful if you don't want it available to
+everyone on the syste. The other method is to build it and copy it to the
+/usr/local/bin directory. Which can be useful if you need multiple users to use
+it.
+
+To install it in the GOPATH bin directory in your home directory.
+
+```sh
+go install
+```
+
+To build and install it in the /usr/local/bin directory...
+
+Build the application.
+
+```sh
+go build
+```
+
+Move it to the fgpm-exporter binary to your /usr/local/bin directory.
+
+```sh
+sudo mv ./fgpm-exporter /usr/local/bin
+```
+
+### "Package manager?"
+
+Someday. Perhaps when it has matured a little more.
 
 ## Prerequisites
 
@@ -155,13 +183,13 @@ Listing available firewalls from configuration.
 One of the key features is exporting a switch configuratio to a CSV. The usage
 for the pull subcommand can be found below.
 
-```sh
 Pulls the data from the chosen FortiGate/FortiSwitch. Application only
 focuses on pulling port information.
 
 Will output to console if -o flag isn't provided. CSV will be generated in
 the current directory if a full/relative path isn't provided.
 
+```sh
 Usage:
   fgpm-exporter pull [flags]
 
@@ -180,7 +208,7 @@ Global Flags:
 To run the command. Look at the example below.
 
 ```sh
-go run main.go pull -f -n test-fw-01 -o test-switches.csv --csv
+fgpm-exporter pull -f -n test-fw-01 -o test-switches.csv --csv
 ```
 
 Below is the expected output for this.
